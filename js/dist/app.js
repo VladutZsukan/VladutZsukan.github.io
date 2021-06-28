@@ -158,7 +158,7 @@ var navScrollListener = function navScrollListener() {
   var aboutNav = document.querySelector("#nav-about");
   var projectsNav = document.querySelector("#nav-projects");
   var contactNav = document.querySelector("#nav-contact");
-  var navArray = [homeNav, skillsNav, aboutNav, projectsNav, contactNav];
+  var navArray = [homeNav, aboutNav, skillsNav, projectsNav, contactNav];
 
   var clearActiveLinkStyle = function clearActiveLinkStyle(navButton) {
     if (navButton.classList.contains("active-link-section")) {
