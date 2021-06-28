@@ -99,18 +99,18 @@ var navButtonArray = Array.from(navButtonList); //Scroll Position Values
 
 var headerHeight = document.querySelector("header").offsetHeight;
 var homeScrollPosition;
-var skillsScrollPosition;
 var aboutScrollPosition;
+var skillsScrollPosition;
 var projectsScrollPosition;
 var contactScrollPosition;
 
 var findSectionPositions = function findSectionPositions() {
   headerHeight = document.querySelector("header").offsetHeight;
   homeScrollPosition = document.querySelector("#home").offsetTop - headerHeight;
-  skillsScrollPosition =
-    document.querySelector("#skills").offsetTop - headerHeight;
   aboutScrollPosition =
     document.querySelector("#about").offsetTop - headerHeight;
+  skillsScrollPosition =
+    document.querySelector("#skills").offsetTop - headerHeight;
   projectsScrollPosition =
     document.querySelector("#projects").offsetTop - headerHeight;
   contactScrollPosition =
@@ -120,10 +120,10 @@ var findSectionPositions = function findSectionPositions() {
 var scrollToSection = function scrollToSection(scrollValue) {
   if (scrollValue === "home") {
     window.scrollTo(0, homeScrollPosition);
-  } else if (scrollValue === "skills") {
-    window.scrollTo(0, skillsScrollPosition);
   } else if (scrollValue === "about") {
     window.scrollTo(0, aboutScrollPosition);
+  } else if (scrollValue === "skills") {
+    window.scrollTo(0, skillsScrollPosition);
   } else if (scrollValue === "projects") {
     window.scrollTo(0, projectsScrollPosition);
   } else if (scrollValue === "contact") {
@@ -154,11 +154,11 @@ var listenForResize = function listenForResize() {
 var navScrollListener = function navScrollListener() {
   //Nav Button Targets
   var homeNav = document.querySelector("#nav-home");
-  var skillsNav = document.querySelector("#nav-skills");
   var aboutNav = document.querySelector("#nav-about");
+  var skillsNav = document.querySelector("#nav-skills");
   var projectsNav = document.querySelector("#nav-projects");
   var contactNav = document.querySelector("#nav-contact");
-  var navArray = [homeNav, aboutNav, skillsNav, projectsNav, contactNav];
+  var navArray = [homeNav, skillsNav, aboutNav, projectsNav, contactNav];
 
   var clearActiveLinkStyle = function clearActiveLinkStyle(navButton) {
     if (navButton.classList.contains("active-link-section")) {
@@ -182,19 +182,19 @@ var navScrollListener = function navScrollListener() {
       colorClear(navArray);
       homeNav.classList.add("active-link-section");
     } else if (
-      screenPosition >= skillsScrollPosition &&
-      screenPosition < aboutScrollPosition &&
-      !skillsNav.classList.contains("active-link-section")
-    ) {
-      colorClear(navArray);
-      skillsNav.classList.add("active-link-section");
-    } else if (
       screenPosition >= aboutScrollPosition &&
-      screenPosition < projectsScrollPosition &&
+      screenPosition < skillsScrollPosition &&
       !aboutNav.classList.contains("active-link-section")
     ) {
       colorClear(navArray);
       aboutNav.classList.add("active-link-section");
+    } else if (
+      screenPosition >= skillsScrollPosition &&
+      screenPosition < projectsScrollPosition &&
+      !skillsNav.classList.contains("active-link-section")
+    ) {
+      colorClear(navArray);
+      skillsNav.classList.add("active-link-section");
     } else if (
       screenPosition >= projectsScrollPosition &&
       screenPosition < contactScrollPosition - headerHeight * 4 &&
